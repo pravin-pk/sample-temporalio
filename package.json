@@ -1,0 +1,28 @@
+{
+  "name": "node_temporal",
+  "version": "1.0.0",
+  "description": "A Sample nodejs app to show working of Temporal",
+  "type": "module",
+  "scripts": {
+    "worker": "node --loader ts-node/esm worker.ts",
+    "client": "node --loader ts-node/esm client.ts"
+  },
+  "keywords": [
+    "temporalio",
+    "worker",
+    "client",
+    "activity",
+    "workflow"
+  ],
+  "author": "pk",
+  "license": "ISC",
+  "dependencies": {
+    "@temporalio/activity": "^1.11.7",
+    "@temporalio/client": "^1.11.7",
+    "@temporalio/worker": "^1.11.7",
+    "@temporalio/workflow": "^1.11.7"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
