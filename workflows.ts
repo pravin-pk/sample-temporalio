@@ -1,13 +1,16 @@
 import { proxyActivities } from "@temporalio/workflow";
 import type * as activities from "./activities.ts";
 
-const { greet, randomNumber } = proxyActivities<typeof activities>({
+const { writeToFile } = proxyActivities<typeof activities>({
   startToCloseTimeout: '10s',
+  retry: {
+    initialInterval: '1s',
+    maximumAttempts: 5,
+  },
 });
 
 
-export async function example(person: activities.Person): Promise<string> {
-  const msg = await greet(person);
-  const num = await randomNumber(person);
-  return `${msg} ${num}`;
+export async function example(person: any): Promise<string> {
+  const filePath = await writeToFile(person);
+  return `File saved at ${filePath}`;
 }

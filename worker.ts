@@ -9,7 +9,7 @@ async function run() {
     const worker = await Worker.create({
         connection,
         workflowsPath: './workflows.ts',
-        taskQueue: 'hello-world',
+        taskQueue: 'temporal-test',
         activities,
     });
 
